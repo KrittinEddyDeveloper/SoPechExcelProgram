@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SoPechExcel.Files;
 using SoPechExcel.Model;
 
 namespace SoPechExcel
@@ -112,7 +113,8 @@ namespace SoPechExcel
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-
+            var excelReport = new ExcelReport(openFileDialogA.FileName, openFileDialogB.FileNames.ToList());
+            excelReport.Proceed();
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
