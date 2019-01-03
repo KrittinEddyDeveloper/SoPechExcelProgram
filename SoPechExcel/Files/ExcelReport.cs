@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OfficeOpenXml;
 using SoPechExcel.Constatnts;
+using Microsoft.Office.Interop.Excel;
 
 namespace SoPechExcel.Files
 {
@@ -40,21 +41,24 @@ namespace SoPechExcel.Files
 
                 foreach (var fileB in FilesB)
                 {
-                    using (var excelPackageB = new ExcelPackage(new FileInfo(fileB)))
+                    ConvertToXlsx(fileB);
+                    string fileBName = fileB + "x";
+
+                    using (var excelPackageB = new ExcelPackage(new FileInfo(fileBName)))
                     {
                         ExcelWorkbook excelWorkBookB = excelPackageB.Workbook;
                         ExcelWorksheet excelWorksheetB = excelWorkBookB.Worksheets.First();
 
                         if (!excelWorksheetB.Cells[2, 1].Value.ToString().Contains($"{SelectedMonth}.{SelectedYear}"))
                         {
-                            throw new Exception($"'{fileB}' is not '{SelectedMonth}.{SelectedYear}'");
+                            throw new Exception($"'{fileBName}' is not '{SelectedMonth}.{SelectedYear}'");
                         }
                         int startIndex = FileA.LastIndexOf('(') + 1;
                         int endIndex = FileA.LastIndexOf(')');
 
                         if (!excelWorksheetB.Cells[7, 4].Value.ToString().Contains(FileA.Substring(startIndex, endIndex - startIndex)))
                         {
-                            throw new Exception($"'{fileB}' is not '{FileA.Substring(startIndex, endIndex - startIndex)}'");
+                            throw new Exception($"'{fileBName}' is not '{FileA.Substring(startIndex, endIndex - startIndex)}'");
                         }
                         excelWorksheetB.Cells[12, 3, 32, 3].Copy(excelWorksheetA.Cells[startRow, 21, endRow, 21]); // COPY C12-C32 To U7-U27 and ...
                         excelWorksheetB.Cells[12, 8, 32, 8].Copy(excelWorksheetA.Cells[startRow, 22, endRow, 22]); // COPY H12-H32 To V7-V27 and ...
@@ -62,11 +66,22 @@ namespace SoPechExcel.Files
                     }
                     startRow = endRow + 8;
                     endRow = startRow + 20;
+                    File.Delete(fileBName);
                 }
 
                 string resultPath = FileA.Substring(0, FileA.LastIndexOf('.')) + "Success" + FileA.Substring(FileA.LastIndexOf('.'));
                 excelPackageA.SaveAs(new FileInfo(resultPath));
+                
             }
+        }
+
+        public void ConvertToXlsx(String path)
+        {
+            var app = new Application();
+            var wb = app.Workbooks.Open(path);
+            wb.SaveAs(Filename: path + "x", FileFormat: Microsoft.Office.Interop.Excel.XlFileFormat.xlOpenXMLWorkbook);
+            wb.Close();
+            app.Quit();
         }
     }
 }

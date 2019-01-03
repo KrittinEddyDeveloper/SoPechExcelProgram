@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbbMonth = new System.Windows.Forms.ComboBox();
@@ -44,54 +45,62 @@
             this.openFileDialogB = new System.Windows.Forms.OpenFileDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Leelawadee", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(111, 18);
+            this.label1.Font = new System.Drawing.Font("Leelawadee", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(136, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 25);
+            this.label1.Size = new System.Drawing.Size(65, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Month";
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Leelawadee", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(376, 18);
+            this.label2.Font = new System.Drawing.Font("Leelawadee", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(401, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 25);
+            this.label2.Size = new System.Drawing.Size(48, 23);
             this.label2.TabIndex = 0;
             this.label2.Text = "Year";
             // 
             // cbbMonth
             // 
+            this.cbbMonth.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbMonth.Font = new System.Drawing.Font("Leelawadee", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbMonth.Font = new System.Drawing.Font("Leelawadee", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbMonth.FormattingEnabled = true;
-            this.cbbMonth.Location = new System.Drawing.Point(189, 14);
+            this.cbbMonth.Location = new System.Drawing.Point(214, 8);
             this.cbbMonth.Name = "cbbMonth";
-            this.cbbMonth.Size = new System.Drawing.Size(121, 33);
+            this.cbbMonth.Size = new System.Drawing.Size(121, 31);
             this.cbbMonth.TabIndex = 1;
             // 
             // cbbYear
             // 
+            this.cbbYear.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbYear.Font = new System.Drawing.Font("Leelawadee", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbYear.Font = new System.Drawing.Font("Leelawadee", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbYear.FormattingEnabled = true;
-            this.cbbYear.Location = new System.Drawing.Point(435, 14);
+            this.cbbYear.Location = new System.Drawing.Point(460, 8);
             this.cbbYear.Name = "cbbYear";
-            this.cbbYear.Size = new System.Drawing.Size(121, 33);
+            this.cbbYear.Size = new System.Drawing.Size(121, 31);
             this.cbbYear.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(28, 77);
+            this.label3.Location = new System.Drawing.Point(28, 225);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 19);
             this.label3.TabIndex = 0;
@@ -101,7 +110,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(10, 135);
+            this.label4.Location = new System.Drawing.Point(10, 262);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 19);
             this.label4.TabIndex = 0;
@@ -109,9 +118,11 @@
             // 
             // tbFileA
             // 
+            this.tbFileA.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbFileA.Enabled = false;
             this.tbFileA.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFileA.Location = new System.Drawing.Point(126, 73);
+            this.tbFileA.Location = new System.Drawing.Point(126, 221);
             this.tbFileA.Multiline = true;
             this.tbFileA.Name = "tbFileA";
             this.tbFileA.Size = new System.Drawing.Size(493, 32);
@@ -119,19 +130,23 @@
             // 
             // tbFileB
             // 
+            this.tbFileB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbFileB.Enabled = false;
             this.tbFileB.Font = new System.Drawing.Font("Leelawadee", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFileB.Location = new System.Drawing.Point(126, 132);
+            this.tbFileB.Location = new System.Drawing.Point(126, 259);
             this.tbFileB.Multiline = true;
             this.tbFileB.Name = "tbFileB";
-            this.tbFileB.Size = new System.Drawing.Size(493, 283);
+            this.tbFileB.Size = new System.Drawing.Size(493, 212);
             this.tbFileB.TabIndex = 2;
             // 
             // btnBrowseFileA
             // 
+            this.btnBrowseFileA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBrowseFileA.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnBrowseFileA.Font = new System.Drawing.Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBrowseFileA.Location = new System.Drawing.Point(625, 72);
+            this.btnBrowseFileA.Location = new System.Drawing.Point(625, 220);
             this.btnBrowseFileA.Name = "btnBrowseFileA";
             this.btnBrowseFileA.Size = new System.Drawing.Size(103, 34);
             this.btnBrowseFileA.TabIndex = 3;
@@ -141,9 +156,10 @@
             // 
             // btnBrowseFileB
             // 
+            this.btnBrowseFileB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBrowseFileB.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnBrowseFileB.Font = new System.Drawing.Font("Leelawadee", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBrowseFileB.Location = new System.Drawing.Point(625, 132);
+            this.btnBrowseFileB.Location = new System.Drawing.Point(625, 259);
             this.btnBrowseFileB.Name = "btnBrowseFileB";
             this.btnBrowseFileB.Size = new System.Drawing.Size(103, 34);
             this.btnBrowseFileB.TabIndex = 3;
@@ -153,10 +169,11 @@
             // 
             // btnProceed
             // 
+            this.btnProceed.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnProceed.BackColor = System.Drawing.Color.SteelBlue;
             this.btnProceed.Font = new System.Drawing.Font("Leelawadee", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProceed.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnProceed.Location = new System.Drawing.Point(263, 436);
+            this.btnProceed.Location = new System.Drawing.Point(263, 482);
             this.btnProceed.Name = "btnProceed";
             this.btnProceed.Size = new System.Drawing.Size(185, 44);
             this.btnProceed.TabIndex = 3;
@@ -166,15 +183,16 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.panel1.Controls.Add(this.cbbMonth);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.cbbYear);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(12, 164);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(740, 61);
+            this.panel1.Size = new System.Drawing.Size(716, 46);
             this.panel1.TabIndex = 4;
             // 
             // openFileDialogB
@@ -188,19 +206,40 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(155, 435);
+            this.progressBar1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.progressBar1.Location = new System.Drawing.Point(155, 481);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(430, 48);
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar1.TabIndex = 5;
             this.progressBar1.Visible = false;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(51)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(740, 150);
+            this.panel2.TabIndex = 4;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(740, 150);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(740, 498);
+            this.ClientSize = new System.Drawing.Size(740, 541);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btnProceed);
             this.Controls.Add(this.btnBrowseFileB);
@@ -209,12 +248,17 @@
             this.Controls.Add(this.tbFileA);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Home";
-            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SePech Excel Program";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,6 +282,8 @@
         private System.Windows.Forms.OpenFileDialog openFileDialogB;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

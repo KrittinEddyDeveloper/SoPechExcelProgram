@@ -46,7 +46,7 @@ namespace SoPechExcel
             cbbMonth.DisplayMember = "Text";
             cbbMonth.ValueMember = "Value";
             cbbMonth.DataSource = datasource;
-            cbbMonth.SelectedValue = DateTime.Today.Month.ToString();
+            cbbMonth.SelectedValue = DateTime.Today.AddMonths(-1).Month.ToString();
         }
 
         public void InitalComboBoxYear()
@@ -61,13 +61,13 @@ namespace SoPechExcel
             cbbYear.DisplayMember = "Text";
             cbbYear.ValueMember = "Value";
             cbbYear.DataSource = datasource;
-            cbbYear.SelectedValue = DateTime.Today.Year.ToString();
+            cbbYear.SelectedValue = DateTime.Today.AddMonths(-1).Year.ToString();
         }
 
         private void btnBrowseFileA_Click(object sender, EventArgs e)
         {
-            DialogResult result = openFileDialogA.ShowDialog(); // Show the dialog.
-            if (result == DialogResult.OK) // Test result.
+            DialogResult result = openFileDialogA.ShowDialog();
+            if (result == DialogResult.OK)
             {
                 try
                 {
@@ -81,8 +81,8 @@ namespace SoPechExcel
 
         private void btnBrowseFileB_Click(object sender, EventArgs e)
         {
-            DialogResult result = openFileDialogB.ShowDialog(); // Show the dialog.
-            if (result == DialogResult.OK) // Test result.
+            DialogResult result = openFileDialogB.ShowDialog();
+            if (result == DialogResult.OK)
             {
                 try
                 {
