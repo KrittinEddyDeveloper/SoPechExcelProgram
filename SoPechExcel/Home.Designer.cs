@@ -177,13 +177,8 @@
             this.panel1.Size = new System.Drawing.Size(740, 61);
             this.panel1.TabIndex = 4;
             // 
-            // openFileDialogA
-            // 
-            this.openFileDialogA.FileName = "openFileDialog1";
-            // 
             // openFileDialogB
             // 
-            this.openFileDialogB.FileName = "openFileDialog2";
             this.openFileDialogB.Multiselect = true;
             // 
             // backgroundWorker1

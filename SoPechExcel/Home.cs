@@ -15,6 +15,9 @@ namespace SoPechExcel
 {
     public partial class Home : Form
     {
+        private int SelectedYear { get; set; }
+        private int SelectedMonth { get; set; }
+
         public Home()
         {
             InitializeComponent();
@@ -98,22 +101,24 @@ namespace SoPechExcel
                 MessageBox.Show(this, @"Please Select File A !!!", @"Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (openFileDialogB.FileNames == null || !openFileDialogB.FileNames.Any())
+            if (openFileDialogB.FileNames == null || !openFileDialogB.FileNames.Any() || openFileDialogB.FileNames.Length != 12)
             {
-                MessageBox.Show(this, @"Please Select File B !!!", @"Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, @"Please Select File B (12 files) !!!", @"Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             progressBar1.Visible = true;
             if (!backgroundWorker1.IsBusy)
             {
+                SelectedYear = int.Parse(cbbYear.SelectedValue.ToString());
+                SelectedMonth = int.Parse(cbbMonth.SelectedValue.ToString());
                 backgroundWorker1.RunWorkerAsync();
             }
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            var excelReport = new ExcelReport(openFileDialogA.FileName, openFileDialogB.FileNames.ToList());
+            var excelReport = new ExcelReport(openFileDialogA.FileName, openFileDialogB.FileNames.ToList(), SelectedYear, SelectedMonth);
             excelReport.Proceed();
         }
 
@@ -122,7 +127,7 @@ namespace SoPechExcel
             progressBar1.Visible = false;
             if (e.Error != null)
             {
-                MessageBox.Show(e.Error.Message);
+                MessageBox.Show(this, e.Error.Message, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (e.Cancelled)
             {

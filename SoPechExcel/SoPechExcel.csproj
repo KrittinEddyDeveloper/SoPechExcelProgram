@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constatnts\ShortMonth.cs" />
     <Compile Include="Files\ExcelReport.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
