@@ -96,24 +96,18 @@ namespace SoPechExcel
 
         private void btnProceed_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(openFileDialogA.FileName))
+            bool validateSuccess = ValidateData();
+            if (validateSuccess)
             {
-                MessageBox.Show(this, @"Please Select File A !!!", @"Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (openFileDialogB.FileNames == null || !openFileDialogB.FileNames.Any() || openFileDialogB.FileNames.Length != 12)
-            {
-                MessageBox.Show(this, @"Please Select File B (12 files) !!!", @"Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                progressBar1.Visible = true;
+                if (!backgroundWorker1.IsBusy)
+                {
+                    SelectedYear = int.Parse(cbbYear.SelectedValue.ToString());
+                    SelectedMonth = int.Parse(cbbMonth.SelectedValue.ToString());
+                    backgroundWorker1.RunWorkerAsync();
+                }
             }
 
-            progressBar1.Visible = true;
-            if (!backgroundWorker1.IsBusy)
-            {
-                SelectedYear = int.Parse(cbbYear.SelectedValue.ToString());
-                SelectedMonth = int.Parse(cbbMonth.SelectedValue.ToString());
-                backgroundWorker1.RunWorkerAsync();
-            }
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -137,6 +131,22 @@ namespace SoPechExcel
             {
                 MessageBox.Show(this, @"Proceed Success.", @"Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private bool ValidateData()
+        {
+            if (string.IsNullOrEmpty(openFileDialogA.FileName))
+            {
+                MessageBox.Show(this, @"Please Select File A !!!", @"Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (openFileDialogB.FileNames == null || !openFileDialogB.FileNames.Any() || openFileDialogB.FileNames.Length != 12)
+            {
+                MessageBox.Show(this, @"Please Select File B (12 files) !!!", @"Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
         }
     }
 }
